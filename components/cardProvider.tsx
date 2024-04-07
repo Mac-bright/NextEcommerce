@@ -16,6 +16,7 @@ function cardProvider({children}:{children:ReactNode}) {
         billingAddressCollection={true}
         shouldPersist={true}
         language='en-US'
+
     >
         {children}
     </CartProvider>

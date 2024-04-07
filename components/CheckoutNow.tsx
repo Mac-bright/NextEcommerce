@@ -9,10 +9,13 @@ import { ProductCart } from './AddToBag'
 const CheckOutNow = ({name,description,price,currency,image,price_id}:ProductCart) => {
     const {checkoutSingleItem} = useShoppingCart()
 
-    function buyNow(priceId:string){
-      checkoutSingleItem{priceId}
+    async function buyNow(priceId:string){
+      const respond = checkoutSingleItem(priceId)
+      const data = await respond
+      console.log(data.json())
     }
 
+    
     const product = {
         name:name,
         description:description,
@@ -25,7 +28,7 @@ const CheckOutNow = ({name,description,price,currency,image,price_id}:ProductCar
     <Button onClick={() => { 
       buyNow(product.price_id)
     }}>
-        Add to Cart
+        Checkout Now
     </Button>
   )
 }
